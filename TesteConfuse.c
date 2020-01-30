@@ -6,14 +6,14 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <confuse.h>
 
-int main(void)
+int main()
 {
-   int porta;
-   char *servidor = NULL;
-   float real;
+   static long int porta;
+   static char *servidor = NULL;
+   static double real;
+
    cfg_t *cfg;
    cfg_opt_t opts[] = {
              CFG_SIMPLE_STR ("server", &servidor),
@@ -25,7 +25,7 @@ int main(void)
    cfg_parse (cfg, "exemplo.conf");
 
    printf ("\nServidor: %s \n", servidor);
-   printf ("Porta: %d \n", porta);
+   printf ("Porta: %ld \n", porta);
    printf ("Real: %f \n", real);
    cfg_free(cfg);       /* Libera a memória alocada por cfg_init */
    return 0;
