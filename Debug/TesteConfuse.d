@@ -1,0 +1,1 @@
+TesteConfuse.o: ../TesteConfuse.c
